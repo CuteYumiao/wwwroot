@@ -1,0 +1,104 @@
+body {
+    /* background-color: black; */
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.hidden {
+    display: none !important;
+}
+div.container {
+    display: block;
+    white-space: nowrap;
+}
+div.keyboard {
+    display: inline-block;
+    margin: 10px;
+}
+div.mouse {
+    display: inline-block;
+    margin: 10px;
+}
+div.mouse > svg {
+    width: 200px;
+}
+div.button,
+div.small-button,
+div.tab-button,
+div.caps-button,
+div.shift-button,
+div.ctrl-button,
+div.alt-button,
+div.space-button {
+    border: 3px solid white;
+    border-radius: 10px;
+    color: white;
+    display: inline-block;
+    text-shadow: -2px -2px #000, -2px -1px #000, -2px 0 #000, -2px 1px #000, -2px 2px #000, -1px -2px #000, -1px -1px #000, -1px 0 #000, -1px 1px #000, -1px 2px #000, 0 -2px #000, 0 -1px #000, 0 0 #000, 0 1px #000, 0 2px #000, 1px -2px #000, 1px -1px #000, 1px 0 #000, 1px 1px #000, 1px 2px #000, 2px -2px #000, 2px -1px #000, 2px 0 #000, 2px 1px #000, 2px 2px #000;
+    font-family: 'Baloo 2 Extrabold';
+    font-size: 22px;
+    line-height: 40px;
+    height: 40px;
+    text-align: center;
+    width: 40px;
+    position: relative;
+}
+div.small-button {
+    line-height: 30px;
+    height: 30px;
+}
+div.tab-button {
+    width: 60px;
+}
+div.caps-button {
+    width: 70px;
+}
+div.shift-button {
+    width: 90px;
+}
+div.ctrl-button {
+    width: 60px;
+}
+div.alt-button {
+    width: 60px;
+}
+div.space-button {
+    width: 280px;
+}
+div.flipped {
+    color: lightpink;
+}
+div.kps {
+    color: lightpink;
+}
+div.pressed {
+    background-color: #2679a0; /* key pressed color */
+    box-shadow: 0 0 8px 3px rgba(35, 173, 278, 1); /* glow effect while holding key */
+}
+div.white-space {
+    border: 3px solid transparent;
+    display: inline-block;
+    width: 40px;
+}
+div.half-white-space {
+    border: 3px solid transparent;
+    display: inline-block;
+    width: 20px;
+}
+div.line {
+    height: 5px;
+}
+div.big-line {
+    height: 15px;
+}
+div.released {
+    animation: key-released 0.5s ease-out; /* animation settings for key releasing */
+}
+@keyframes key-released {
+    from {
+        background-color: #13b3cf; /* key released color */
+    }
+    to {
+        background-color: transparent;
+    }
+}

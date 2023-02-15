@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="keyboard.css" />
+    <script src="keyboard.js"></script>
+    <script>
+        function listenWebSocket() {
+            let state = {};
+            let ws = new WebSocket('ws://' + location.host + '/ws');
+            ws.onopen = function () {
+                ws.send(JSON.stringify({ listen: 'Keyboard' }));
+            };
+            ws.onmessage = function (event) {
+                let data = JSON.parse(event.data);
+
+                if (data.type == 'Ping') {
+                    // reply to ping messages
+                    ws.send(JSON.stringify({ ping: data.ping }));
+                    return;
+                }
+
+                updateKeyboardUI(data);
+            };
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            listenWebSocket();
+            initKeyboardSides();
+        });
+
+    </script>
+</head>
+<body>
+    <div class="keyboard">
+        <div>
+            <div class="white-space"></div>
+            <div class="button" id="KeyW" data-side-b="W">↑</div>
+        </div>
+        <div class="line"></div>
+        <div>
+            <div class="button" id="KeyA" data-side-b="A">←</div>
+            <div class="button" id="KeyS" data-side-b="S">↓</div>
+            <div class="button" id="KeyD" data-side-b="D">→</div>
+            <div class="half-white-space"></div>
+            <div class="small-button" id="KeyF" data-side-b="F">M</div>
+            <div class="small-button" id="KeyG" data-side-b="G">S</div>
+            <div class="half-white-space"></div>
+            <div class="button" id="KeyJ" data-side-b="J" data-kps-min="5">B</div>
+            <div class="button" id="KeyK" data-side-b="K">A</span></div>
+        </div>
+    </div>
+</body>
+</html>
